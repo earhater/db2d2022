@@ -6,7 +6,7 @@ nickname = input("Выберите имя пользователя: ")
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Инициализация сокета
 
-client.connect(('127.0.0.1', 7976))  # Соединение клиента с сервером
+client.connect(('192.168.1.86', 7976))  # Соединение клиента с сервером
 
 def receive():
     while True:  # Подтверждение соединения
@@ -25,7 +25,8 @@ def receive():
 def write():
     while True:  # Вывод сообщений в чат
         message = '{}: {}'.format(nickname, input(''))
-        client.send(message.encode('utf-8'))
+        while True:
+            client.send(message.encode('utf-8'))
 
 receive_thread = threading.Thread(target=receive)  # Получение всех сообщений
 receive_thread.start()

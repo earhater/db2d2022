@@ -2,7 +2,7 @@
 import socket, threading  # Импорт библиотек
 
 host = '127.0.0.1'  # Локальный хост компьютера
-port = 7976  # Выбор незарезервированного порта
+port = 7977  # Выбор незарезервированного порта
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Инициализация сокета
 server.bind((host, port))  # Назначение хоста и порта к сокету
